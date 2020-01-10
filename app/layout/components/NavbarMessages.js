@@ -2,6 +2,7 @@ import React from 'react';
 import faker from 'faker/locale/en_US';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
+import { translate } from "react-translate";
 
 import {
     Avatar,
@@ -36,14 +37,14 @@ const NavbarMessages = (props) => (
         </DropdownToggle>
         <ExtendedDropdown right>
             <ExtendedDropdown.Section className="d-flex justify-content-between align-items-center">
-                <h6 className="mb-0">Messages</h6>
+                <h6 className="mb-0">{props.t('Messages')}</h6>
                 <ExtendedDropdown.Link to="/apps/new-email">
                     <i className="fa fa-pencil" />
                 </ExtendedDropdown.Link>
             </ExtendedDropdown.Section>
             <ExtendedDropdown.Section>
                 <InputGroup>
-                    <Input placeholder="Search Messages..." />
+                    <Input placeholder={props.t("Search Messages")+"..."} />
                     <InputGroupAddon addonType="append">
                         <Button color="secondary" outline>
                             <i className="fa fa-search" />
@@ -72,9 +73,9 @@ const NavbarMessages = (props) => (
                                         <span className="h6 pb-0 mb-0 d-flex align-items-center">
                                             { faker.name.firstName() } { faker.name.lastName() }
                                         </span>
-                                        
+
                                         <span className="ml-1 small">(23)</span>
-                                        <span className="ml-auto small">Now</span>
+                                        <span className="ml-auto small">{props.t("Now")}</span>
                                     </span>
                                     <p className="mt-2 mb-1">
                                         { faker.lorem.sentences() }
@@ -88,8 +89,8 @@ const NavbarMessages = (props) => (
             </ExtendedDropdown.Section>
 
             <ExtendedDropdown.Section className="text-center" tag={ ExtendedDropdown.Link } to="/apps/inbox">
-                View All
-                <i className="fa fa-angle-right fa-fw ml-2" />
+                {props.t("View All")}
+                <i className="fa fa-angle-left fa-fw ml-2" />
             </ExtendedDropdown.Section>
         </ExtendedDropdown>
     </UncontrolledDropdown>
@@ -99,4 +100,5 @@ NavbarMessages.propTypes = {
     style: PropTypes.object
 };
 
-export { NavbarMessages };
+const t=translate('FA')(NavbarMessages);
+export { t as NavbarMessages };

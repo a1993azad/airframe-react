@@ -1,30 +1,31 @@
 import React from 'react';
 
-import { 
+import {
     Nav,
     NavItem,
     NavLink,
     Badge
 } from './../../../components';
+import {translate} from "react-translate";
 
-const UsersLeftNav = () => (
+const UsersLeftNav = ({t}) => (
     <React.Fragment>
         { /* START Left Nav  */}
-        <div className="mb-4">
+        <div className="mb-4 text-right">
             <Nav pills vertical>
                 <NavItem>
                     <NavLink href="#" active>
-                        All Contacts
+                        {t("Newest")}
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#">
-                        Favorites
+                        {t("Family")}
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#">
-                        Private
+                        {t("Favorite")}
                     </NavLink>
                 </NavItem>
             </Nav>
@@ -32,23 +33,23 @@ const UsersLeftNav = () => (
         { /* END Left Nav  */}
         { /* START Left Nav  */}
         <div className="mb-4">
-            <div className="small mb-3">
-                Tags
+            <div className="small mb-3 text-right">
+                {t("User Types")}
             </div>
             <Nav pills vertical>
                 <NavItem>
                     <NavLink href="#" className="d-flex">
                         <i className="fa fa-fw fa-circle text-primary align-self-center mr-2"></i>
-                        Family
+                        {t("manager")}
                         <Badge color="secondary" pill className="ml-auto align-self-center">
-                            12
+                            1
                         </Badge>
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="#" className="d-flex">
                         <i className="fa fa-fw fa-circle text-info align-self-center mr-2"></i>
-                        Friends
+                        {t("teacher")}
                         <Badge color="secondary" pill className="ml-auto align-self-center">
                             3
                         </Badge>
@@ -57,7 +58,7 @@ const UsersLeftNav = () => (
                 <NavItem>
                     <NavLink href="#" className="d-flex">
                         <i className="fa fa-fw fa-circle text-success align-self-center mr-2"></i>
-                        Work
+                        {t("student")}
                         <Badge color="secondary" pill className="ml-auto align-self-center">
                             67
                         </Badge>
@@ -66,7 +67,7 @@ const UsersLeftNav = () => (
                 <NavItem>
                     <NavLink href="#" className="d-flex">
                         <i className="fa fa-fw fa-circle text-warning align-self-center mr-2"></i>
-                        Trips
+                        {t("staff")}
                         <Badge color="secondary" pill className="ml-auto align-self-center">
                             5
                         </Badge>
@@ -75,22 +76,22 @@ const UsersLeftNav = () => (
                 <NavItem>
                     <NavLink href="#" className="d-flex">
                         <i className="fa fa-fw fa-circle text-danger align-self-center mr-2"></i>
-                        Other
+                        {t("parent")}
                         <Badge color="secondary" pill className="ml-auto align-self-center">
                             1
                         </Badge>
                     </NavLink>
                 </NavItem>
-                <NavItem>
+               {/* <NavItem>
                     <NavLink href="#">
                         <i className="fa fa-fw fa-plus mr-2"></i>
                         Add New Label
                     </NavLink>
-                </NavItem>
+                </NavItem>*/}
             </Nav>
         </div>
         { /* END Left Nav  */}
     </React.Fragment>
 )
-
-export { UsersLeftNav };
+const  t=translate('FA')(UsersLeftNav);
+export { t as UsersLeftNav };

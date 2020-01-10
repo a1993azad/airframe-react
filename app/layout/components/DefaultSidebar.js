@@ -21,21 +21,22 @@ export const DefaultSidebar = () => (
             </SidebarTrigger>
         </Sidebar.Close>
         { /* START SIDEBAR-OVERLAY: Close (x) */ }
-        
+
         { /* START SIDEBAR: Only for Desktop */ }
         <Sidebar.HideSlim>
             <Sidebar.Section>
                 <Link to="/" className="sidebar__brand">
-                    <LogoThemed checkBackground />
+                    <LogoThemed checkBackground width={100} />
                 </Link>
             </Sidebar.Section>
         </Sidebar.HideSlim>
+        <hr className="mb-4 mt-0 w-100"/>
         { /* END SIDEBAR: Only for Desktop */ }
 
         { /* START SIDEBAR: Only for Mobile */ }
         <Sidebar.MobileFluid>
             <SidebarTopA />
-            
+
             <Sidebar.Section fluid cover>
                 { /* SIDEBAR: Menu */ }
                 <SidebarMiddleNav />

@@ -1,8 +1,9 @@
 import React from 'react';
-import faker from 'faker/locale/en_US';
+import faker from 'faker/locale/fa';
 import { Link } from 'react-router-dom';
+import { translate } from "react-translate";
 
-import { 
+import {
     Sidebar,
     UncontrolledButtonDropdown,
     Avatar,
@@ -15,23 +16,23 @@ import { randomAvatar } from './../../../utilities';
 
 const avatarImg = randomAvatar();
 
-const SidebarTopA = () => (
+const SidebarTopA = ({t}) => (
     <React.Fragment>
         { /* START: Sidebar Default */ }
         <Sidebar.HideSlim>
-            <Sidebar.Section className="pt-0">
-                <Link to="/" className="d-block">
+            <Sidebar.Section className="pt-0 text-right">
+                <Link to="/" className="d-block text-right">
                     <Sidebar.HideSlim>
                         <Avatar.Image
                             size="lg"
                             src={ avatarImg }
                             addOns={[
-                                <AvatarAddOn.Icon 
+                                <AvatarAddOn.Icon
                                     className="fa fa-circle"
                                     color="white"
                                     key="avatar-icon-bg"
                                 />,
-                                <AvatarAddOn.Icon 
+                                <AvatarAddOn.Icon
                                     className="fa fa-circle"
                                     color="success"
                                     key="avatar-icon-fg"
@@ -40,7 +41,7 @@ const SidebarTopA = () => (
                         />
                     </Sidebar.HideSlim>
                 </Link>
-                
+
                 <UncontrolledButtonDropdown>
                     <DropdownToggle color="link" className="pl-0 pb-0 btn-profile sidebar__link">
                         { faker.name.firstName() } { faker.name.lastName() }
@@ -52,18 +53,18 @@ const SidebarTopA = () => (
                     </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem tag={ Link } to="/apps/profile-details">
-                        My Profile
+                        {t('My Profile')}
                     </DropdownItem>
                     <DropdownItem tag={ Link } to="/apps/settings-edit">
-                        Settings
+                        {t('Settings')}
                     </DropdownItem>
                     <DropdownItem tag={ Link } to="/apps/billing-edit">
-                        Billings
+                        {t('Billings')}
                     </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem tag={ Link } to="/pages/login">
                         <i className="fa fa-fw fa-sign-out mr-2"></i>
-                        Sign Out
+                        {t('Sign Out')}
                     </DropdownItem>
                     </DropdownMenu>
                 </UncontrolledButtonDropdown>
@@ -81,12 +82,12 @@ const SidebarTopA = () => (
                     size="sm"
                     src={ avatarImg }
                     addOns={[
-                        <AvatarAddOn.Icon 
+                        <AvatarAddOn.Icon
                             className="fa fa-circle"
                             color="white"
                             key="avatar-icon-bg"
                         />,
-                        <AvatarAddOn.Icon 
+                        <AvatarAddOn.Icon
                             className="fa fa-circle"
                             color="success"
                             key="avatar-icon-fg"
@@ -98,5 +99,5 @@ const SidebarTopA = () => (
         { /* END: Sidebar Slim */ }
     </React.Fragment>
 )
-
-export { SidebarTopA };
+const t=translate('FA')(SidebarTopA);
+export {t as SidebarTopA};

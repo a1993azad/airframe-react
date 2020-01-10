@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import uuid from 'uuid/v4';
 
 import { MenuContext } from './MenuContext';
 
 /**
- * Renders a collapse trigger or a ReactRouter Link 
+ * Renders a collapse trigger or a ReactRouter Link
  */
 const SidebarMenuItemLink = (props) => (
     (props.to || props.href) ? (
         props.to ? (
-            <Link to={ props.to } className={`${props.classBase}__entry__link`}>
+            <NavLink to={ props.to } activeClassName={props.activeClassName || "text-primary text-bold"} className={`${props.classBase}__entry__link`}>
                 { props.children }
-            </Link>
+            </NavLink>
         ) : (
             <a
                 href={ props.href }
@@ -25,7 +25,7 @@ const SidebarMenuItemLink = (props) => (
                 { props.children }
             </a>
         )
-        
+
     ) : (
         <a
             href="javascript:;"
@@ -89,7 +89,7 @@ export class SidebarMenuItem extends React.Component {
             parentId: this.props.parentId,
             exact: !!this.props.exact
         };
-        
+
         if (this.props.to) {
             entry.url = this.props.to;
         }

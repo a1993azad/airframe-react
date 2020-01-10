@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {translate} from "react-translate";
 import {
     Card,
     CardFooter,
@@ -14,47 +14,47 @@ import {
     Paginations
 } from "../../components/Paginations";
 
-const UsersList = () => (
+const UsersList = ({t}) => (
         <Card className="mb-3">
             { /* START Table */}
             <div className="table-responsive-xl">
                 <Table className="mb-0" hover>
                     <thead>
                         <tr>
-                            <th className="align-middle bt-0"></th>
-                            <th className="align-middle bt-0"></th>
-                            <th className="align-middle bt-0">Name</th>
-                            <th className="align-middle bt-0">Email</th>
-                            <th className="align-middle bt-0">Phone</th>
-                            <th className="align-middle bt-0 text-right">
-                                Actions
+                            <th className="align-middle bt-0 text-center"></th>
+                            <th className="align-middle bt-0 text-center"></th>
+                            <th className="align-middle bt-0 text-center">{t("first name and last name")}</th>
+                            <th className="align-middle bt-0 text-center">{t("Email")}</th>
+                            <th className="align-middle bt-0 text-center">{t("Phone")}</th>
+                            <th className="align-middle bt-0 text-center ">
+                                {t("Actions")}
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <TrTableUsersList />
-                        <TrTableUsersList 
+                        <TrTableUsersList
                             id="2"
                         />
-                        <TrTableUsersList 
+                        <TrTableUsersList
                             id="3"
                         />
-                        <TrTableUsersList 
+                        <TrTableUsersList
                             id="4"
                         />
-                        <TrTableUsersList 
+                        <TrTableUsersList
                             id="5"
                         />
-                        <TrTableUsersList 
+                        <TrTableUsersList
                             id="6"
                         />
-                        <TrTableUsersList 
+                        <TrTableUsersList
                             id="7"
                         />
-                        <TrTableUsersList 
+                        <TrTableUsersList
                             id="8"
                         />
-                        <TrTableUsersList 
+                        <TrTableUsersList
                             id="9"
                         />
                     </tbody>
@@ -68,4 +68,4 @@ const UsersList = () => (
 
 );
 
-export default UsersList;
+export default translate("FA")(UsersList);

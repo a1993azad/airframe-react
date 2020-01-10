@@ -18,10 +18,10 @@ var config = {
     srcHtmlLayout:          path.join(root, 'app', 'index.html'),
 
     // Site Config ====================================================
-    siteTitle:              'Airframe',
-    siteDescription:        'Default Dashboard ready for Development',
+    siteTitle:              'دانو',
+    siteDescription:        'دانشی نوین در آموزشی مدرن',
     siteCannonicalUrl:      'http://localhost:4100',
-    siteKeywords:           'react dashboard seed bootstrap',
+    siteKeywords:           'آموزشگاه آنلاین تدریس مدیریت آموزشگاه',
     scssIncludes:           []
 }
 

@@ -12,6 +12,7 @@ import {
 
 import './../../styles/components/theme-selector.scss';
 import { Consumer } from './ThemeContext';
+import {  translate  } from "react-translate";
 
 class ThemeSelector extends React.Component {
     static propTypes = {
@@ -75,12 +76,12 @@ class ThemeSelector extends React.Component {
                 <Card className="theme-config__body">
                     <CardBody>
                         <h6 className="text-center mb-3">
-                            Configurator
+                            تنظیمات پوسته
                         </h6>
 
                         <FormGroup>
-                            <span className="h6 small mb-2 d-block">
-                                Nav Color
+                            <span className="h6 small mb-2 d-block text-right">
+                                رنگبندی
                             </span>
                             {
                                 _.map(this.props.colorOptions, (option, index) => (
@@ -99,9 +100,9 @@ class ThemeSelector extends React.Component {
                                                 }
                                             }}
                                             label={(
-                                                <span className="d-flex align-items-center">
-                                                    { option.name }
-                                                    <i className={`fa fa-circle ml-auto text-${option.value}`} />
+                                                <span className="d-flex align-items-center text-right">
+                                                    <i className={`fa fa-circle ml-2 text-${option.value}`} />
+                                                    { this.props.t(option.name) }
                                                 </span>
                                             )}
                                         />
@@ -109,14 +110,15 @@ class ThemeSelector extends React.Component {
                             }
                         </FormGroup>
                         <FormGroup>
-                            <span className="h6 small mb-2 d-block">
-                                Nav Style
+                            <span className="h6 small mb-2 d-block text-right">
+                                حالت نمایش
                             </span>
                             {
                                 _.map(this.props.styleOptions, (option, index) => (
                                     <CustomInput
                                         key={ index }
                                         type="radio"
+                                        className={"text-right"}
                                         name="sidebarStyle"
                                         id={ `sidebarStyle--${option.value}` }
                                         value={ option.value }
@@ -129,7 +131,7 @@ class ThemeSelector extends React.Component {
                                                 });
                                             }
                                         }}
-                                        label={ option.name }
+                                        label={ this.props.t(option.name) }
                                     />
                                 ))
                             }
@@ -146,7 +148,7 @@ class ThemeSelector extends React.Component {
                                     });
                                 }}
                             >
-                                Reset Options
+                                {this.props.t('Reset')+ " "+this.props.t('Options')}
                             </Button>
                         </FormGroup>
                     </CardBody>
@@ -162,5 +164,5 @@ const ContextThemeSelector = (props) =>
             (themeState) => <ThemeSelector { ...themeState } { ...props } />
         }
     </Consumer>
-
-export { ContextThemeSelector as ThemeSelector };
+const t=translate('FA')(ContextThemeSelector);
+export { t as ThemeSelector };

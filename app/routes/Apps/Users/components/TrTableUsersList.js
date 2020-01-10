@@ -1,8 +1,8 @@
 import React from 'react';
-import faker from 'faker/locale/en_US';
+import faker from 'faker/locale/fa';
 import PropTypes from 'prop-types';
 
-import { 
+import {
     Media,
     Avatar,
     AvatarAddOn,
@@ -14,17 +14,17 @@ import {
 } from './../../../../components';
 
 import { randomArray, randomAvatar } from './../../../../utilities';
-
+import {translate} from "react-translate";
 const TrTableUsersList = (props) => {
 
     const avatar = [
         [
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-circle"
                 color="facebook"
                 key="avatar-icon-bg"
             />,
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-facebook"
                 color="white"
                 key="avatar-icon-fg"
@@ -32,12 +32,12 @@ const TrTableUsersList = (props) => {
             />
         ],
         [
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-circle"
                 color="twitter"
                 key="avatar-icon-bg"
             />,
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-twitter"
                 color="white"
                 key="avatar-icon-fg"
@@ -45,12 +45,12 @@ const TrTableUsersList = (props) => {
             />
         ],
         [
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-circle"
                 color="linkedin"
                 key="avatar-icon-bg"
             />,
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-linkedin"
                 color="white"
                 key="avatar-icon-fg"
@@ -58,12 +58,12 @@ const TrTableUsersList = (props) => {
             />
         ],
         [
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-circle"
                 color="foursquare"
                 key="avatar-icon-bg"
             />,
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-foursquare"
                 color="white"
                 key="avatar-icon-fg"
@@ -71,12 +71,12 @@ const TrTableUsersList = (props) => {
             />
         ],
         [
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-circle"
                 color="paypal"
                 key="avatar-icon-bg"
             />,
-            <AvatarAddOn.Icon 
+            <AvatarAddOn.Icon
                 className="fa fa-paypal"
                 color="white"
                 key="avatar-icon-fg"
@@ -103,14 +103,14 @@ const TrTableUsersList = (props) => {
                                 src={ randomAvatar() }
                                 className="align-self-center"
                                 addOns={[
-                                    <AvatarAddOn.Icon 
+                                    <AvatarAddOn.Icon
                                         className="fa fa-circle"
                                         color="white"
                                         key="avatar-icon-white-bg"
                                     />,
                                     ...randomArray(avatar)
                                 ]}
-                            /> 
+                            />
                         </Media>
                         <Media body>
                             <a className="mt-0 d-flex text-decoration-none" href="#">
@@ -122,11 +122,11 @@ const TrTableUsersList = (props) => {
                         </Media>
                     </Media>
                 </td>
-                <td className="align-middle">
-                     { faker.internet.email() }   
+                <td className="align-middle ltr">
+                     { faker.internet.email() }
                 </td>
                 <td className="align-middle">
-                     { faker.phone.phoneNumberFormat() }   
+                     { faker.phone.phoneNumberFormat() }
                 </td>
                 <td className="align-middle text-right">
                     <UncontrolledButtonDropdown>
@@ -136,28 +136,24 @@ const TrTableUsersList = (props) => {
                         <DropdownMenu right>
                             <DropdownItem>
                                 <i className="fa fa-fw fa-phone mr-2"></i>
-                                Call
+                                {props.t("Call")}
                             </DropdownItem>
                             <DropdownItem>
                                 <i className="fa fa-fw fa-comment mr-2"></i>
-                                Chat
-                            </DropdownItem>
-                            <DropdownItem>
-                                <i className="fa fa-fw fa-video-camera mr-2"></i>
-                                Video
+                                {props.t("Chat")}
                             </DropdownItem>
                             <DropdownItem>
                                 <i className="fa fa-fw fa-user mr-2"></i>
-                                Profile
+                                {props.t("Profile")}
                             </DropdownItem>
                             <DropdownItem>
                                 <i className="fa fa-fw fa-pencil mr-2"></i>
-                                Edit
+                                {props.t("Edit")}
                             </DropdownItem>
                             <DropdownItem divider />
                             <DropdownItem>
                                 <i className="fa fa-fw fa-trash mr-2"></i>
-                                Delete
+                                {props.t("Delete")}
                             </DropdownItem>
                         </DropdownMenu>
                     </UncontrolledButtonDropdown>
@@ -173,4 +169,5 @@ TrTableUsersList.defaultProps = {
     id: "1"
 };
 
-export { TrTableUsersList };
+const t=translate('FA')(TrTableUsersList);
+export { t as TrTableUsersList };

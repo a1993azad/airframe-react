@@ -2,18 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const FooterText = (props) => (
-	<React.Fragment>
-		(C) { props.year } All Rights Reserved. This is the &quot;{ props.name }&quot; built with { props.desc }. 
-		Designed and implemented by{' '}
+	<p className="text-center">
+		 { props.year }
+        (C)
+		 تمـام حقوق مادی اثر محفوظ می باشد.
+<br/>
+
+		طراحی شده توسط
+        {' '}
+
 		<a
-			href="http://www.webkom.co"
+			href="http://www.daneshnu.ir"
 			target="_blank"
 			rel="noopener noreferrer"
 			className="sidebar__link"
 		>
-			www.webkom.co
+            { props.name }
 		</a>
-	</React.Fragment>
+        .
+	</p>
 )
 FooterText.propTypes = {
     year: PropTypes.node,
@@ -21,9 +28,9 @@ FooterText.propTypes = {
 	desc: PropTypes.node,
 };
 FooterText.defaultProps = {
-    year: "2018",
-    name: "Admin Theme",
-    desc: "Bootstrap 4, React 16 (latest) & NPM"
+    year: "1398",
+    name: "گروه دانــو",
+    desc: ""
 };
 
 export { FooterText };

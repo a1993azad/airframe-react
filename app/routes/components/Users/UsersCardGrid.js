@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { 
+import {
     Card,
     CardBody,
     Button,
@@ -13,7 +13,7 @@ import {
     ButtonGroup,
     DropdownItem
 } from './../../../components';
-
+import {translate} from "react-translate";
 import {
     Profile
 } from "./../Profile";
@@ -30,7 +30,7 @@ const UsersCardGrid = (props) => (
                             <i className="fa fa-star-o"></i>
                         </Button>
                         <UncontrolledTooltip placement="top" target={`usersCardGridTooltip-${ props.id }` }>
-                            Add To Favorites
+                            {props.t("Add To Favorites")}
                         </UncontrolledTooltip>
                         <UncontrolledButtonDropdown className="ml-auto">
                             <DropdownToggle color="link" size="sm" className="pt-0">
@@ -39,28 +39,24 @@ const UsersCardGrid = (props) => (
                             <DropdownMenu right>
                                 <DropdownItem>
                                     <i className="fa fa-fw fa-phone mr-2"></i>
-                                    Call
+                                    {props.t("Call")}
                                 </DropdownItem>
                                 <DropdownItem>
                                     <i className="fa fa-fw fa-comment mr-2"></i>
-                                    Chat
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <i className="fa fa-fw fa-video-camera mr-2"></i>
-                                    Video
+                                    {props.t("Chat")}
                                 </DropdownItem>
                                 <DropdownItem>
                                     <i className="fa fa-fw fa-user mr-2"></i>
-                                    Profile
+                                    {props.t("Profile")}
                                 </DropdownItem>
                                 <DropdownItem>
                                     <i className="fa fa-fw fa-pencil mr-2"></i>
-                                    Edit
+                                    {props.t("Edit")}
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
                                     <i className="fa fa-fw fa-trash mr-2"></i>
-                                    Delete
+                                    {props.t("Delete")}
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledButtonDropdown>
@@ -71,7 +67,7 @@ const UsersCardGrid = (props) => (
             <CardFooter className="bt-0 text-center">
                 <span>
                     <span className="mr-3">
-                        <i className="fa fa-user-o mr-1"></i> <span className="text-inverse">233</span> 
+                        <i className="fa fa-user-o mr-1"></i> <span className="text-inverse">233</span>
                     </span>
                     <span>
                         <i className="fa fa-star-o mr-1"></i> <span className="text-inverse">98</span>
@@ -88,5 +84,5 @@ UsersCardGrid.propTypes = {
 UsersCardGrid.defaultProps = {
     id: "1"
 };
-
-export { UsersCardGrid };
+const t=translate('FA')(UsersCardGrid);
+export { t as UsersCardGrid };

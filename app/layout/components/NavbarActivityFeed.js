@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import faker from 'faker/locale/en_US';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
+import { translate } from "react-translate";
 
 import {
     UncontrolledDropdown,
@@ -45,9 +46,9 @@ const NavbarActivityFeed = (props) => (
                 <i className="fa fa-bell-o fa-fw" />
             </IconWithBadge>
         </DropdownToggle>
-        <ExtendedDropdown right>
+        <ExtendedDropdown left>
             <ExtendedDropdown.Section className="d-flex justify-content-between align-items-center">
-                <h6 className="mb-0">Activity Feed</h6>
+                <h6 className="mb-0">{props.t("Activity Feed")}</h6>
                 <Badge pill>4</Badge>
             </ExtendedDropdown.Section>
 
@@ -79,8 +80,8 @@ const NavbarActivityFeed = (props) => (
             </ExtendedDropdown.Section>
 
             <ExtendedDropdown.Section className="text-center" tag={ Link} to="/apps/widgets">
-                See All Notifications
-                <i className="fa fa-angle-right fa-fw ml-2" />
+                {props.t("See All Notifications")}
+                <i className="fa fa-angle-left fa-fw ml-2" />
             </ExtendedDropdown.Section>
         </ExtendedDropdown>
     </UncontrolledDropdown>
@@ -90,4 +91,5 @@ NavbarActivityFeed.propTypes = {
     style: PropTypes.object
 };
 
-export { NavbarActivityFeed };
+const t=translate("FA")(NavbarActivityFeed);
+export { t as NavbarActivityFeed };
