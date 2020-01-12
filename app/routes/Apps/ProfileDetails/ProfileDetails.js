@@ -1,8 +1,8 @@
 import React from 'react';
-import faker from 'faker/locale/en_US';
+import faker from 'faker/locale/fa';
 import { Link } from 'react-router-dom';
 
-import { 
+import {
     Container,
     Row,
     Col,
@@ -35,73 +35,56 @@ import { ChatRight } from "../../components/Chat/ChatRight";
 import { ChatCardFooter } from "../../components/Chat/ChatCardFooter";
 import { TrTableMessages } from "./components/TrTableMessages";
 import { TimelineDefault } from "../../components/Timeline/TimelineDefault";
+import {translate} from "react-translate";
+import {NavLink} from "reactstrap";
 
-
-const ProfileDetails = () => (
+const ProfileDetails = (props) => {
+    return(
     <React.Fragment>
         <Container>
-            <HeaderMain 
-                title="Profile Details"
-                className="mb-5 mt-4"
-            />
             { /* START Content */}
             <Row>
                 <Col lg={ 4 }>
                     <Card>
-                        <CardBody>
+                        <CardBody className="text-right">
                             <Profile />
-                            <div className="text-center pb-1">
-                                <ul className="list-inline">
-                                    <li className="list-inline-item text-center">
-                                        <h2 className="mb-1">23</h2>
-                                        <span>Contracts</span>
-                                    </li>
-                                    <li className="list-inline-item text-center">
-                                        <h2 className="mb-1">13</h2>
-                                        <span>Tasks</span>
-                                    </li>
-                                    <li className="list-inline-item text-center">
-                                        <h2 className="mb-1">5</h2>
-                                        <span>Relases</span>
-                                    </li>
-                                </ul>
-                            </div>                                
+
                             <Row className="mt-3">
-                                <Col sm={ 6 } md={ 6 }>
-                                    <Button color="primary" block tag={ Link } to="/apps/new-email" className="mb-3 mb-lg-0">
-                                        Message
-                                    </Button> 
+                                <Col sm={ 12 } md={ 4 }>
+                                    <Button color="primary" block tag={ Link } to="/apps/new-email" className="mb-3 mb-lg-0 rounded-pill">
+                                        {props.t("Email")}
+                                    </Button>
                                 </Col>
-                                <Col sm={ 6 } md={ 6 }>
-                                    <Button color="secondary" outline block tag={ Link } to="/apps/profile-edit">
-                                        Edit
-                                    </Button> 
+                                <Col sm={ 12 } md={ 4 }>
+                                    <Button color="primary" outline block tag={ Link } to="/apps/new-email" className="mb-3 mb-lg-0 rounded-pill">
+                                        {props.t("Message")}
+                                    </Button>
+                                </Col>
+                                <Col sm={ 12 } md={ 4 }>
+                                    <Button color="primary" className=" mb-3 mb-lg-0 rounded-pill" outline block tag={ Link } to="/apps/profile-edit">
+                                        {props.t("Edit")}
+                                    </Button>
                                 </Col>
                             </Row>
-                            <div className="mt-4 mb-2">
-                                <span className="small">
-                                    Profile
+                            <div className="mt-4 mb-2 ">
+                                <span className="small iranSansBold">
+                                    {props.t("Bio")}
                                 </span>
                             </div>
-                            <p className="text-left">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                Dicta sapiente earum, necessitatibus commodi eius pariatur 
-                                repudiandae cum sunt officiis ex!
+                            <p className="text-justify">
+                                متنی از زندگینامه شما در این مکان نمایش داده شده است
                             </p>
                             <div className="mt-4 mb-2">
-                                <span className="small">
-                                    Labels
+                                <span className="small iranSansBold">
+                                    {props.t("User Types")}
                                 </span>
                             </div>
-                            <div className="text-left mb-4">
-                                <Badge pill color="secondary" className="mr-1">
-                                    { faker.commerce.department() }
+                            <div className=" mb-4">
+                                <Badge pill color="primary" className="mr-1">
+                                    {props.t("manager")}
                                 </Badge>
-                                <Badge pill color="secondary" className="mr-1">
-                                    { faker.commerce.department() }
-                                </Badge>
-                                <Badge pill color="secondary" className="mr-1">
-                                    { faker.commerce.department() }
+                                <Badge pill color="info" className="mr-1">
+                                    {props.t("teacher")}
                                 </Badge>
                             </div>
                             <div className="mt-4 mb-2">
@@ -114,7 +97,7 @@ const ProfileDetails = () => (
                             <div className="mt-4 mb-2">
                                 <span className="small">Address</span>
                             </div>
-                            <DlRowAddress 
+                            <DlRowAddress
                                 leftSideClassName="text-lg-left"
                                 rightSideClassName="text-lg-right text-inverse"
                             />
@@ -151,7 +134,7 @@ const ProfileDetails = () => (
                             <TabPane tabId="overview">
                                 <CardGroup className="mb-5">
                                     <Card body>
-                                        <ProfileOverviewCard 
+                                        <ProfileOverviewCard
                                             title="Views"
                                             badgeColor="primary"
                                                 badgeTitle="Monthly"
@@ -164,7 +147,7 @@ const ProfileDetails = () => (
                                         />
                                     </Card>
                                     <Card body>
-                                        <ProfileOverviewCard 
+                                        <ProfileOverviewCard
                                             title="Orders"
                                             badgeColor="info"
                                                 badgeTitle="Annual"
@@ -177,7 +160,7 @@ const ProfileDetails = () => (
                                         />
                                     </Card>
                                     <Card body>
-                                        <ProfileOverviewCard 
+                                        <ProfileOverviewCard
                                             title="Visits"
                                             badgeColor="secondary"
                                                 badgeTitle="Today"
@@ -190,7 +173,7 @@ const ProfileDetails = () => (
                                         />
                                     </Card>
                                 </CardGroup>
-                                <TimelineDefault 
+                                <TimelineDefault
                                     showPillDate
                                         pillDate="Today"
                                     smallIconColor="danger"
@@ -211,21 +194,21 @@ const ProfileDetails = () => (
                                     iconCircleColor="primary"
                                         iconCircle="envelope"
                                 />
-                                <TimelineDefault 
+                                <TimelineDefault
                                     showPillDate
                                         pillDate="3 Months ago"
                                     smallIconColor="warning"
                                     iconCircleColor="warning"
                                         iconCircle="clock-o"
                                 />
-                                <TimelineDefault 
+                                <TimelineDefault
                                     showPillDate
                                         pillDate="Year ago"
                                     smallIconColor="success"
                                     iconCircleColor="success"
                                         iconCircle="check"
                                 />
-                                <TimelineDefault 
+                                <TimelineDefault
                                     iconCircle="close"
                                 />
                             </TabPane>
@@ -234,14 +217,14 @@ const ProfileDetails = () => (
                                     <div className="mb-2">
                                         <span className="small">Contact</span>
                                     </div>
-                                    <DlRowContacts 
+                                    <DlRowContacts
                                     leftSideClassName="text-lg-right"
                                     rightSideClassName="text-inverse"
                                     />
                                     <div className="mt-4 mb-2">
                                         <span className="small">Address</span>
                                     </div>
-                                    <DlRowAddress 
+                                    <DlRowAddress
                                         leftSideClassName="text-lg-right"
                                         rightSideClassName="text-inverse"
                                     />
@@ -352,6 +335,6 @@ const ProfileDetails = () => (
 
         </Container>
     </React.Fragment>
-);
-
-export default ProfileDetails;
+)
+};
+export default translate('FA')(ProfileDetails);

@@ -80,4 +80,19 @@
 .modal-header .close {
   margin: -1rem auto -1rem -1rem;
 }
-
+.timeline.timeline-datetime .timeline-item {
+  margin-right: 117px;
+  margin-left: 0;
+}
+.timeline .timeline-item .timeline-icon:before {
+  left: auto;
+  right: -12px;
+}
+.timeline .timeline-item .timeline-icon i {
+  left: auto;
+  right: -19px;
+}
+.timeline .timeline-item .timeline-item-time {
+  left: calc(100% + 40px);
+  right: auto;
+}

@@ -73,16 +73,16 @@ const Users = (props) => {
                 <Col lg={ 9 }>
                     <ProjectsSmHeader
                        /* subTitle={props.match.params.type === "list"?"Users List":"Users Grid"}*/
-                        linkList="/apps/users/list"
-                        linkGrid="/apps/users/grid"
+                        linkList="/users/list"
+                        linkGrid="/users/grid"
                         hideBreadcrumb
                         addClick={addClick}
                     />
                     <div className="mt-2">
                     {
                         props.match.params.type === "list" ?
-                            <UsersList /> :
-                            <UsersGrid />
+                            <UsersList {...props}/> :
+                            <UsersGrid {...props}/>
                     }
                     </div>
                 </Col>

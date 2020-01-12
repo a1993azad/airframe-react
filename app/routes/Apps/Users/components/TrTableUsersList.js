@@ -142,11 +142,11 @@ const TrTableUsersList = (props) => {
                                 <i className="fa fa-fw fa-comment mr-2"></i>
                                 {props.t("Chat")}
                             </DropdownItem>
-                            <DropdownItem>
+                            <DropdownItem onClick={()=>props.history.push(`/user/${props.id}/profile`)}>
                                 <i className="fa fa-fw fa-user mr-2"></i>
                                 {props.t("Profile")}
                             </DropdownItem>
-                            <DropdownItem>
+                            <DropdownItem onClick={()=>props.history.push(`/user/${props.id}/edit`)}>
                                 <i className="fa fa-fw fa-pencil mr-2"></i>
                                 {props.t("Edit")}
                             </DropdownItem>

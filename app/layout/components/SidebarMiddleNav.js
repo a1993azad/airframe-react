@@ -17,7 +17,7 @@ const SidebarMiddleNav = ({t}) => (
             <SidebarMenu.Item title={t("Reports")} to='/dashboards/reports' exact />
         </SidebarMenu.Item>
         <SidebarMenu.Item
-            to='/apps/users/list'
+            to='/users/list'
 
             icon={<i className="fa fa-fw fa-user"></i>}
             title={t("Users")}

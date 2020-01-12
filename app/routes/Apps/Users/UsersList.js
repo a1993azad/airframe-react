@@ -14,7 +14,7 @@ import {
     Paginations
 } from "../../components/Paginations";
 
-const UsersList = ({t}) => (
+const UsersList = ({t,...props}) => (
         <Card className="mb-3">
             { /* START Table */}
             <div className="table-responsive-xl">
@@ -32,30 +32,39 @@ const UsersList = ({t}) => (
                         </tr>
                     </thead>
                     <tbody>
-                        <TrTableUsersList />
+                        <TrTableUsersList id="1"
+                                          {...props}/>
                         <TrTableUsersList
                             id="2"
+                                              {...props}
                         />
                         <TrTableUsersList
                             id="3"
+                                          {...props}
                         />
                         <TrTableUsersList
                             id="4"
+                                              {...props}
                         />
                         <TrTableUsersList
                             id="5"
+                                          {...props}
                         />
                         <TrTableUsersList
                             id="6"
+                                              {...props}
                         />
                         <TrTableUsersList
                             id="7"
+                                          {...props}
                         />
                         <TrTableUsersList
                             id="8"
+                                              {...props}
                         />
                         <TrTableUsersList
                             id="9"
+                                          {...props}
                         />
                     </tbody>
                 </Table>

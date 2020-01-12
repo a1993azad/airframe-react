@@ -77,6 +77,8 @@ export const FA= {
     "First Name":"نـام",
     "please enter user first name":"لطفاً نام کاربر را وارد کنید!",
     "Last Name":"نام خــانوادگی",
-    "please enter user last name!":"لطفاً نام خــانوادگی کاربر را وارد کنید!"
+    "please enter user last name!":"لطفاً نام خــانوادگی کاربر را وارد کنید!",
+    "Message":"پیامک",
+    "Bio":"بیوگرافی",
 
 }

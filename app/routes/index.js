@@ -9,7 +9,7 @@ import {
 import Analytics from './Dashboards/Analytics';
 import ProjectsDashboard from './Dashboards/Projects';
 import System from './Dashboards/System';
-import Monitor from './Dashboards/Monitor'; 
+import Monitor from './Dashboards/Monitor';
 import Financial from './Dashboards/Financial';
 import Stock from './Dashboards/Stock';
 import Reports from './Dashboards/Reports';
@@ -115,7 +115,11 @@ export const RoutedContent = () => {
     return (
         <Switch>
             <Redirect from="/" to="/dashboards/projects" exact />
-            
+            <Route component={ Users } path="/users/:type" />
+            <Route component={ ProfileDetails } path="/user/:id/profile" />
+            <Route component={ ProfileEdit } path="/user/:id/edit" />
+
+
             <Route path="/dashboards/analytics" exact component={Analytics} />
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
             <Route path="/dashboards/system" exact component={System} />
@@ -125,11 +129,11 @@ export const RoutedContent = () => {
             <Route path="/dashboards/reports" exact component={Reports} />
 
             <Route path='/widgets' exact component={Widgets} />
-            
+
             { /*    Cards Routes     */ }
             <Route path='/cards/cards' exact component={Cards} />
             <Route path='/cards/cardsheaders' exact component={CardsHeaders} />
-            
+
             { /*    Layouts     */ }
             <Route path='/layouts/navbar' component={NavbarOnly} />
             <Route path='/layouts/sidebar' component={SidebarDefault} />
@@ -173,7 +177,7 @@ export const RoutedContent = () => {
             <Route component={ DatePicker } path="/forms/date-picker" />
             <Route component={ Dropzone } path="/forms/dropzone" />
             <Route component={ Sliders } path="/forms/sliders" />
-            
+
             { /*    Graphs Routes   */ }
             <Route component={ ReCharts } path="/graphs/re-charts" />
 
@@ -194,8 +198,8 @@ export const RoutedContent = () => {
             <Route component={ ImagesResults } path="/apps/images-results" />
             <Route component={ Inbox } path="/apps/inbox" />
             <Route component={ NewEmail } path="/apps/new-email" />
-            <Route component={ ProfileDetails } path="/apps/profile-details" />
-            <Route component={ ProfileEdit } path="/apps/profile-edit" />
+            {/*<Route component={ ProfileDetails } path="/apps/profile-details" />
+            <Route component={ ProfileEdit } path="/apps/profile-edit" />*/}
             <Route component={ Projects } path="/apps/projects/:type" />
             <Route component={ SearchResults } path="/apps/search-results" />
             <Route component={ SessionsEdit } path="/apps/sessions-edit" />
@@ -203,7 +207,8 @@ export const RoutedContent = () => {
             <Route component={ Tasks } path="/apps/tasks/:type" />
             <Route component={ TasksDetails } path="/apps/task-details" />
             <Route component={ TasksKanban } path="/apps/tasks-kanban" />
-            <Route component={ Users } path="/apps/users/:type" />
+            {/*<Route component={ Users } path="/apps/users/:type" />*/}
+
             <Route component={ UsersResults } path="/apps/users-results" />
             <Route component={ VideosResults } path="/apps/videos-results" />
 
@@ -247,7 +252,7 @@ export const RoutedNavbars  = () => (
         <Route
             component={ DefaultNavbar }
         />
-    </Switch>  
+    </Switch>
 );
 
 export const RoutedSidebars = () => (
